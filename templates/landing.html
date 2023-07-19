@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bridge</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='landing.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
+  <link rel = "icon" href ="{{ url_for('static', filename='bridgeIcon.png') }}" type = "image/x-icon">
+</head>
+<body>
+    <div class="sticky-nav">
+        <div class="nav">
+          <div class="nav-box">
+            <div class="logo">
+              <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+            </div>
+            
+            <div class="dropdown">
+              <img class="menu-icon" src="{{ url_for('static', filename='menu.png') }}" alt="Menu">
+              <div class="dropdown-content">
+                <a href="{{ url_for('auth.landing') }}" class="active">Home</a>
+                <a href="{{ url_for('auth.gender_bias_analysis') }}">Gender Bias Detection</a>
+                <a href="{{ url_for('auth.aboutUs') }}">Pay Transparency</a>
+                <a href="{{ url_for('auth.landingAboutUs') }}">About Us</a>
+                <a href="{{ url_for('auth.landingContact') }}">Contact</a>
+                <a href="{{ url_for('auth.logout') }}">Logout</a>
+              </div>
+            </div>
+            
+            <div class="topnav-centered">
+                <div class="dropdown">
+                    <a href="#" class="features-dropdown">Features &#9662;</a>
+                    <div class="features-dropdown-content">
+                      <a href="{{ url_for('auth.gender_bias_analysis') }}">Gender Bias Detection</a>
+                      <a href="#">Pay Transparency</a>
+                    </div>
+                  </div>
+              <a href="{{ url_for('auth.landingAboutUs') }}">About Us</a>
+              <a href="{{ url_for('auth.landingContact') }}">Contact</a>
+            </div>
+      
+            <div class="signUp-btn">
+              <a href="{{ url_for('auth.logout') }}">LOGOUT</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+  <div class="row-container">
+    
+    <div class="left-side">
+      <p class="statement"># Gender Equality</p>
+      <p class="question">“ Bridge - The app that eliminates unconscious gender bias and provides salary data across different roles ”</p>
+      <div class="start-btn">
+        <a href="{{ url_for('auth.gender_bias_analysis') }}">Get started</a>
+      </div>
+    </div>
+    
+    <div class="right-side">
+        <img class="right" src="{{ url_for('static', filename='right.png') }}" alt="Right background"> 
+    </div>
+    
+  </div>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search Jobs">
+    <button type="submit">Search</button>
+  </div>
+
+  <p class="statement2">What is the goal?</p>
+  
+  <div class="row-container">
+
+    <div class="right-side">
+      <div class="pay">
+        <div class="top2">
+          <a href="{{ url_for('auth.landingAboutUs') }}" class="circle">
+            <img class="rightArrow" src="{{ url_for('static', filename='rightWhite.png') }}" alt="Right arrow"> 
+          </a>
+        </div>
+        <div class="payContent">
+          <img class="scales" src="{{ url_for('static', filename='scales.png') }}" alt="Scales"> 
+          <p class="statement3">Pay Transparency</p>
+          <p class="statement4">Gain the insights and confidence to get pay right with relevant, validated salary data.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="left">
+      <div class="gender">
+        <div class="top2">
+          <a href="{{ url_for('auth.gender_bias_analysis') }}" class="circle2">
+            <img class="rightArrow" src="{{ url_for('static', filename='rightBlack.png') }}" alt="Right arrow"> 
+          </a>
+        </div>
+        <div class="payContent">
+          <img class="inclusive" src="{{ url_for('static', filename='gender.png') }}" alt="Inclusive"> 
+          <p class="statement5">Inclusive Recruitment</p>
+          <p class="statement6">Eliminate bias in job posts, sourcing mail, and employer brand content before it filters out great candidates</p>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+  <!-- Footer -->
+  <footer class="bg-dark text-center text-white">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 Alex Miseda
+    </div>
+  </footer>
+  <!-- Footer -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

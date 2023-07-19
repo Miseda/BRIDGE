@@ -1,0 +1,395 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0 5em;
+  padding: 0;
+  background-color: black;
+}
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav {
+  justify-content: center;
+  margin: 20px auto;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 20px;
+}
+
+.nav-box {
+  width: 100%;
+  border-radius: 20px;
+  position: relative;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo img {
+  width: 150px;
+}
+
+.topnav-centered {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.topnav-centered a {
+  position: relative;
+  display: inline-block;
+  padding: 0 10px;
+  text-decoration: none;
+  color: black;
+  top: 5px; /* Adjust the value as needed */
+}
+
+.signUp-btn a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 7px;
+}
+
+.row-container {
+  display: flex;
+  align-items: center; /* Add this to vertically center the content */
+}
+
+.left-side {
+  /* background-color: #f1f1f1; */
+  flex: 1;
+  margin-right: 5em;
+  padding: 0em; /* Add some padding to the left side */
+}
+
+.statement {
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+  color: #ECECEC;
+}
+
+.left-side p {
+  text-align: center;
+}
+
+.left-side p:last-child {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-side p:last-child::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 1px;
+  background-color: #000;
+  bottom: -3px;
+  left: 25%; /* Center the line horizontally */
+}
+
+.left-side p:last-child::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  border-radius: 50%;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.icon {
+  width: 15px;
+}
+
+.line {
+  width: 30%;
+  height: 2px;
+  background-color: #000;
+  text-align: center;
+  margin: 15px auto;
+}
+
+a {
+  color: #000; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+  text-decoration: none; /* Add underline on hover */
+  color:  #898787;
+}
+
+.question{
+  color: white;
+}
+
+.name{
+    color: #fff;
+}
+
+.name2{
+    color: #fff;
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+footer{
+  margin-top: 80px;
+}
+
+.right-side {
+  background-image: none;
+  flex: 1;
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-size: 600px 900px;
+  border-radius: 15px;
+  margin-left: auto;
+}
+
+.miseda{
+    width: 500px;
+}
+
+.form-box {
+  background-color: white;
+  padding: 50px;
+  border-radius: 20px;
+  width: 450px;
+  max-width: 100%;
+}
+
+.login-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+form {
+  margin-top: 45px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  color: #898787;
+  font-size: 13px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 4px;
+  margin-top: 5px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ECECEC;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 40px;
+  border-radius: 15px;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+p.error {
+  color: rgb(0, 0, 0);
+}
+
+p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: black;
+  color: white;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 30px; /* Adjust the distance from the top */
+  left: -150px; /* Adjust the distance from the left */
+  padding: 20px;
+  text-align: left;
+  transition: opacity 5s ease-out;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display: block;
+  opacity: 1;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 0;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-content:focus-within {
+  display: block;
+}
+
+
+.menu-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+.responsive-signup{
+  display: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: black;
+  color: white;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 30px; /* Adjust the distance from the top */
+  left: -150px; /* Adjust the distance from the left */
+  padding: 20px;
+  text-align: left;
+  transition: opacity 5s ease-out;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display: block;
+  opacity: 1;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 0;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-content:focus-within {
+  display: block;
+}
+
+
+.dropdown .features-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    color: white;
+    min-width: 300px; /* Adjust the width as needed */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 0;
+    left: 100%;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .dropdown:hover .features-dropdown-content,
+  .dropdown:focus-within .features-dropdown-content {
+    display: block;
+  }
+  
+  .dropdown .features-dropdown-content a {
+    color: white;
+  }
+
+
+
+
+@media screen and (max-width: 1000px) {
+  .nav-box {
+    justify-content: space-between;
+  }
+  .topnav-centered {
+    display: none;
+  }
+  .signUp-btn {
+    display: none;
+  }
+  .nav .menu-icon {
+    display: block;
+  }
+  .right-side {
+    display: none;
+  }
+  body {
+    background-color: #000000;
+  }
+  .right-side {
+    background-image: none;
+  }
+
+  .left-side p {
+    text-align: center;
+  }
+
+  .nav {
+    background-color: white;
+    transition: background-color 0.3s ease-in-out;
+    border-radius: 20px;
+  }
+  
+  body {
+    background-size: cover; /* Make the background image cover the entire page */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-position: center center; /* Center the background image */
+  }
+
+  .form-box {
+    padding: 10px; /* Adjust the padding to reduce the height */
+    margin-top: 20px; /* Adjust the margin to reduce the height */
+  }
+  .responsive-signup {
+    display: block;
+    margin-top: 10px;
+  }
+
+}
+
+
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bridge</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='loading.css') }}">
+    <link rel = "icon" href ="{{ url_for('static', filename='bridgeIcon.png') }}" type = "image/x-icon">
+    <style>
+        .logo-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .logo {
+            width: 150px; /* Adjust the width as per your logo size */
+            height: auto;
+            filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 10px #fff) drop-shadow(0 0 20px #fff) drop-shadow(0 0 30px #fff);
+            animation: glow 2s linear infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 10px #fff) drop-shadow(0 0 20px #fff) drop-shadow(0 0 30px #fff);
+            }
+            50% {
+                filter: drop-shadow(0 0 5px #fff) drop-shadow(0 0 10px #fff) drop-shadow(0 0 20px #fff) drop-shadow(0 0 30px #fff) drop-shadow(0 0 50px #fff);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="loader"></div>
+    </div>
+
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+    </div>
+
+    <script>
+        setTimeout(function() {
+            window.location.href = "{{ next_page }}";
+        }, 2000); // Change the delay as per your requirement
+    </script>
+</body>
+</html>
