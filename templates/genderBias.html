@@ -54,14 +54,16 @@
 
         <h2>Gender Bias Analysis</h2>
 
-        <form id="genderBiasForm" method="POST" action="{{ url_for('auth.gender_bias_analysis') }}">
+        <form id="analyzeForm"  method="POST" action="{{ url_for('auth.gender_bias_analysis') }}">
             <label for="job_posting">Job Posting:</label>
             <textarea id="job_posting" name="job_posting" rows="10" cols="50" required>{{ job_posting }}</textarea>
             <br>
             <input type="submit" value="Analyze">
         </form>
 
-
+        <!-- Add this button to start speech recognition -->
+        <button id="startSpeechRecognition">Start Speech Input</button>
+        
 
     </div>
     <div class="right-side">
@@ -121,8 +123,6 @@
     </div>
   </div>
  
- 
-
    
   <!-- Footer -->
   <footer class="bg-dark text-center text-white">
@@ -131,6 +131,61 @@
     </div>
   </footer>
   <!-- Footer -->
+
+  <!-- Add this script to handle speech input -->
+
+  <script>
+    // Initialize a flag to track if the content was changed by speech input
+    let speechInputChanged = false;
+  
+    // Function to handle speech recognition
+    function handleSpeechRecognition() {
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+      recognition.lang = 'en-US'; // Set the language to English (you can change it as needed)
+  
+      recognition.onstart = function () {
+        // Change the button text to "Listening..." and update the style
+        const speechButton = document.getElementById('startSpeechRecognition');
+        speechButton.textContent = 'Listening...';
+        speechButton.style.backgroundColor = 'black';
+        speechButton.style.color = 'white';
+      };
+  
+      recognition.onresult = function (event) {
+        const recognizedText = event.results[0][0].transcript;
+        // Insert the recognized text into the job posting textarea and set the flag to true
+        document.getElementById('job_posting').value = recognizedText;
+        speechInputChanged = true;
+  
+        // Trigger the form submission manually to perform automatic analysis
+        document.getElementById('analyzeForm').submit();
+      };
+  
+      recognition.onend = function () {
+        // Change the button text back to "Start Speech Input" and reset the style
+        const speechButton = document.getElementById('startSpeechRecognition');
+        speechButton.textContent = 'Start Speech Input';
+        speechButton.style.backgroundColor = ''; // Reset to the original background color
+        speechButton.style.color = ''; // Reset to the original text color
+      };
+  
+      recognition.start();
+    }
+  
+    // Event listener for the speech input button
+    document.getElementById('startSpeechRecognition').addEventListener('click', handleSpeechRecognition);
+  
+    // Event listener for the textarea input to trigger analysis automatically only if changed by speech input
+    document.getElementById('job_posting').addEventListener('input', function () {
+      // Trigger the form submission manually to perform automatic analysis if changed by speech input
+      if (speechInputChanged) {
+        document.getElementById('analyzeForm').submit();
+        speechInputChanged = false; // Reset the flag after analysis
+      }
+    });
+  </script>
+  
+  
 
 
   <script>
