@@ -43,11 +43,11 @@ def load_user(user_id):
         if user is None:
             print("User not found in the database")
         else:
-            print(f"User found: {user.username}")
+            print("User found:{}".format (user.username))
 
         return user
     except Exception as e:
-        print(f"Error loading user: {str(e)}")
+        print("Error loading user: {}".format(str(e)))
         return None
     
 # Remove the login route from app.py
