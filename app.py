@@ -65,7 +65,7 @@ def check_connection():
         connect('bridge').ping()
         return 'Successfully connected to MongoDB!'
     except Exception as e:
-        return f'Error connecting to MongoDB: {str(e)}'
+        return 'Error connecting to MongoDB: {}'.format(str(e))
 
 
 
