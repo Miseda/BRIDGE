@@ -50,17 +50,27 @@
     
       <h1>Your Job Postings</h1>
 
-      <div class="card-container">
-          {% for job_posting in job_postings %}
-              <div class="card">
-                  <strong>{{ job_posting.created_at.strftime('%Y-%m-%d') }}</strong><br>
-                  {{ job_posting.content }}
-                  <form method="post" action="{{ url_for('auth.delete_job_posting', job_posting_id=job_posting.id) }}">
-                      <button type="submit" class="delete-button">Delete</button>
-                  </form>
-              </div>
-          {% endfor %}
+  {% if job_postings %}
+    <!-- Display job postings -->
+    <div class="card-container">
+      {% for job_posting in job_postings %}
+        <div class="card">
+          <strong>{{ job_posting.created_at.strftime('%Y-%m-%d') }}</strong><br>
+          {{ job_posting.content }}
+          <form method="post" action="{{ url_for('auth.delete_job_posting', job_posting_id=job_posting.id) }}">
+            <button type="submit" class="delete-button">Delete</button>
+          </form>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <!-- Display "No job postings" card -->
+    <div class="center-container ">
+      <div class="card">
+        <p>You currently have no job postings</p>
       </div>
+    </div>
+  {% endif %}
 
  
  

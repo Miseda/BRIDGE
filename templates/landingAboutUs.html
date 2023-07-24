@@ -22,7 +22,7 @@
               <div class="dropdown-content">
                 <a href="{{ url_for('auth.landing') }}" class="active">Home</a>
                 <a href="{{ url_for('auth.gender_bias_analysis') }}">Gender Bias Detection</a>
-                <a href="{{ url_for('auth.aboutUs') }}">Pay Transparency</a>
+                <a href="{{ url_for('auth.job_salaries') }}">Pay Transparency</a>
                 <a href="{{ url_for('auth.landingAboutUs') }}">About Us</a>
                 <a href="{{ url_for('auth.landingContact') }}">Contact</a>
                 <a href="{{ url_for('auth.logout') }}">Logout</a>
@@ -34,8 +34,8 @@
                 <div class="dropdown">
                     <a href="#" class="features-dropdown">Features &#9662;</a>
                     <div class="features-dropdown-content">
-                      <a href="auth.gender_bias_analysis">Gender Bias Detection</a>
-                      <a href="#">Pay Transparency</a>
+                      <a href="{{ url_for('auth.gender_bias_analysis') }}">Gender Bias Detection</a>
+                      <a href="{{ url_for('auth.job_salaries') }}">Pay Transparency</a>
                     </div>
                   </div>
               <a href="{{ url_for('auth.landing') }}">Home</a>

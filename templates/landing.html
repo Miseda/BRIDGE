@@ -22,7 +22,7 @@
               <div class="dropdown-content">
                 <a href="{{ url_for('auth.landing') }}" class="active">Home</a>
                 <a href="{{ url_for('auth.gender_bias_analysis') }}">Gender Bias Detection</a>
-                <a href="{{ url_for('auth.aboutUs') }}">Pay Transparency</a>
+                <a href="{{ url_for('auth.job_salaries') }}">Pay Transparency</a>
                 <a href="{{ url_for('auth.landingAboutUs') }}">About Us</a>
                 <a href="{{ url_for('auth.landingContact') }}">Contact</a>
                 <a href="{{ url_for('auth.logout') }}">Logout</a>
@@ -34,7 +34,7 @@
                     <a href="#" class="features-dropdown">Features &#9662;</a>
                     <div class="features-dropdown-content">
                       <a href="{{ url_for('auth.gender_bias_analysis') }}">Gender Bias Detection</a>
-                      <a href="#">Pay Transparency</a>
+                      <a href="{{ url_for('auth.job_salaries') }}">Pay Transparency</a>
                     </div>
                   </div>
               <a href="{{ url_for('auth.landingAboutUs') }}">About Us</a>
@@ -65,8 +65,11 @@
   </div>
 
   <div class="search-bar">
-    <input type="text" placeholder="Search Jobs">
-    <button type="submit">Search</button>
+    <form method="post" action="{{ url_for('auth.job_salaries') }}">
+      <input type="text" name="job_title" placeholder="Job Title" required>
+      <input type="text" name="country" placeholder="Country" required>
+      <button type="submit">Search</button>
+    </form>
   </div>
 
   <p class="statement2">What is the goal?</p>
@@ -76,7 +79,7 @@
     <div class="right-side">
       <div class="pay">
         <div class="top2">
-          <a href="{{ url_for('auth.landingAboutUs') }}" class="circle">
+          <a href="{{ url_for('auth.job_salaries') }}" class="circle">
             <img class="rightArrow" src="{{ url_for('static', filename='rightWhite.png') }}" alt="Right arrow"> 
           </a>
         </div>

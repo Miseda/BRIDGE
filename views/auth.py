@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, render_template_string, session
+from flask import Blueprint, render_template, request, redirect, url_for, render_template, request, session
 from flask_login import login_user, current_user, logout_user, login_required
 from pymongo import MongoClient
 from flask_bcrypt import Bcrypt
@@ -13,6 +13,7 @@ import string
 import re
 import datetime
 from flask import jsonify, request
+import requests
 
 
 
@@ -394,3 +395,49 @@ def delete_job_posting(job_posting_id):
     # Redirect the user back to the job_postings page
     return redirect(url_for('auth.job_postings'))
 
+import requests
+
+# ... (other imports and setup code)
+
+@auth_bp.route('/job_salaries', methods=['GET', 'POST'])
+def job_salaries():
+    job_listings = []
+
+    if request.method == 'POST':
+        # Get the job title and country input from the form
+        job_title = request.form['job_title']
+        country = request.form['country']
+
+        # Prepare the API request parameters
+        url = "https://job-salary-data.p.rapidapi.com/job-salary"
+        querystring = {"job_title": job_title, "location": country}
+
+        # Set your Rapid API key here
+        headers = {
+            "X-RapidAPI-Key": "1f4ec03288msh5c158ffaaaf05a9p1030cejsnd3deacdf1fda",
+            "X-RapidAPI-Host": "job-salary-data.p.rapidapi.com"
+        }
+
+        # Send the API request
+        response = requests.get(url, headers=headers, params=querystring)
+        data = response.json()
+
+        # Print the raw API response data
+        print(data)
+
+        # Parse the response data and extract the required information
+        for item in data.get('data', []):
+            location_parts = item['location'].split(',')
+            city = location_parts[-1].strip() if len(location_parts) > 1 else location_parts[0].strip()
+
+            job_listing = {
+                'job_title': item['job_title'],
+                'country': country,
+                'salary': item['median_salary'],
+                'salary_currency': item['salary_currency'],
+                'salary_period': item['salary_period']
+            }
+            job_listings.append(job_listing)
+
+    # Render the job_search.html template along with the salary results (if available)
+    return render_template('job_search.html', job_listings=job_listings)

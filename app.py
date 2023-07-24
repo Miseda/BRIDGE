@@ -1,8 +1,9 @@
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, request
 from flask_bcrypt import Bcrypt
 from mongoengine import connect
 from views.auth import auth_bp
 from flask_login import LoginManager
+import requests
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'SECRET'  # Set your secret key
@@ -65,6 +66,7 @@ def check_connection():
         return 'Successfully connected to MongoDB!'
     except Exception as e:
         return f'Error connecting to MongoDB: {str(e)}'
+
 
 
 if __name__ == '__main__':
