@@ -151,11 +151,13 @@ def load():
     return render_template('loading.html')
 
 @auth_bp.route('/landingContact')
+@login_required
 def landingContact():
     # Render the aboutUs page
     return render_template('landingContact.html')
 
 @auth_bp.route('/landingAboutUs')
+@login_required
 def landingAboutUs():
     # Render the aboutUs page
     return render_template('landingAboutUs.html')
@@ -208,6 +210,7 @@ gender_alternatives = {
 
 
 @auth_bp.route('/gender_bias_analysis', methods=['GET', 'POST'])
+@login_required
 def gender_bias_analysis():
     if request.method == 'POST':
         # Get the job posting text from the form
@@ -370,6 +373,7 @@ def gender_bias_analysis():
     return render_template('genderBias.html')
 
 @auth_bp.route('/job_postings', methods=['GET'])
+@login_required
 def job_postings():
     # Assuming you have a way to get the current user
     user = current_user
@@ -395,11 +399,9 @@ def delete_job_posting(job_posting_id):
     # Redirect the user back to the job_postings page
     return redirect(url_for('auth.job_postings'))
 
-import requests
-
-# ... (other imports and setup code)
 
 @auth_bp.route('/job_salaries', methods=['GET', 'POST'])
+@login_required
 def job_salaries():
     job_listings = []
 
