@@ -6,10 +6,10 @@ from flask_login import LoginManager
 import requests
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'SECRET'  # Set your secret key
+app.config['SECRET_KEY'] = 'SECRET'  # Secret key
 
 app.config['MONGODB_SETTINGS'] = {
-    'db': 'bridge',  # Replace 'bridge' with your database name
+    'db': 'bridge',  # Database name
     'host': 'mongodb+srv://bridge:1234@bridge.oisqkif.mongodb.net/bridge?retryWrites=true&w=majority',
 }
 # Custom filter to mimic zip function in templates
